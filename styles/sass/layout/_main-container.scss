@@ -1,14 +1,20 @@
+@use "../abstract/mixins" as *;
+
 #main-container {
 	height: 100vh;
-	background-color: black;
+	background-color: green;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	padding: 0 1.8rem;
+	padding: 1.2rem 1.8rem;
 }
 
 #bottom-container {
-	border: solid red 1px;
+	// border: solid red 1px;
+	height: 62.5%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 #top-row {
@@ -30,15 +36,23 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	border: solid yellow 1px;
+	// border: solid yellow 1px;
+
+	> h1 {
+		cursor: default;
+	}
 
 	> #text:focus,
 	#text:active,
 	#text {
 		background: transparent;
 		border: 0;
-		border-bottom: solid white 1px;
+		border-bottom: solid white 2px;
 		outline: none;
+	}
+
+	> #text {
+		min-width: 550px;
 	}
 }
 
@@ -46,8 +60,45 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	position: relative;
+
+	p {
+		// max-width: 33ch;
+	}
+
+	.arrow-container.bottom-left {
+		@include arrow-container(left, top, 5%);
+	}
+
+	.arrow-container.bottom-right {
+		@include arrow-container(right, top, 78%);
+	}
 
 	> .toggle {
 		cursor: pointer;
+	}
+}
+
+.middle-container {
+	// border: solid green 1px;
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	align-items: center;
+	width: 100%;
+
+	> #time,
+	p {
+		grid-column: 2 / 3;
+	}
+
+	> svg {
+		margin-left: 2rem;
+		cursor: pointer;
+		display: none;
+	}
+
+	> svg:hover {
+		background: rgba(255, 255, 255, 0.4);
+		border-radius: 50%;
 	}
 }

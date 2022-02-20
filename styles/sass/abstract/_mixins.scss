@@ -1,0 +1,25 @@
+@mixin arrow-container(
+	$horizontal-position,
+	$arrow-direction,
+	$arrow-left-position-percentage
+) {
+	position: absolute;
+	background: rgba(14, 17, 18, 0.8);
+	bottom: 150%;
+	#{$horizontal-position}: 0;
+	padding: 1.4rem 1.2rem;
+	border-radius: 5px;
+	opacity: 0;
+	visibility: hidden;
+	transition: visibility 0.2s, opacity 0.2s linear;
+
+	:before {
+		border: solid transparent;
+		content: "";
+		position: absolute;
+		#{$arrow-direction}: 100%;
+		left: $arrow-left-position-percentage;
+		border-#{$arrow-direction}-color: rgba(14, 17, 18, 0.4);
+		border-width: 10px;
+	}
+}

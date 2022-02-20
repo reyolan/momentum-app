@@ -1,0 +1,9 @@
+#main-container .-show {
+	display: block;
+}
+
+#bottom-row .arrow-container.-open {
+	visibility: visible;
+	opacity: 1;
+	transition: visibility 0s, opacity 0.2s linear;
+}
