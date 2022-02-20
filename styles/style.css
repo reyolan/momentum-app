@@ -4,12 +4,107 @@
   padding: 0;
 }
 
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  line-height: 1.15;
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+}
+
+.container {
+  text-align: center;
+}
+
+#middle-row #time {
+  font-size: 1680%;
+  line-height: 0.85;
+}
+#middle-row p {
+  font-size: 5.4rem;
+}
+
+#middle-bottom-row > h1 {
+  font-size: 3rem;
+}
+#middle-bottom-row > #text {
+  text-align: center;
+  font-size: 3rem;
+  color: white;
+}
+
+#bottom-row #quote {
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+#bottom-row > .toggle {
+  font-size: 1.6rem;
+  color: rgba(225, 225, 225, 0.85);
+}
+#bottom-row > .toggle:hover {
+  color: white;
+}
+
+#main-container {
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 1.8rem;
+}
+
+#bottom-container {
+  border: solid red 1px;
+}
+
+#top-row {
+  display: flex;
+  justify-content: flex-end;
+  cursor: default;
+}
+
+#middle-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
+#middle-bottom-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: solid yellow 1px;
+}
+#middle-bottom-row > #text:focus,
+#middle-bottom-row #text:active,
+#middle-bottom-row #text {
+  background: transparent;
+  border: 0;
+  border-bottom: solid white 1px;
+  outline: none;
+}
+
+#bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#bottom-row > .toggle {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

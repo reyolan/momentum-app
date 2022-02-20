@@ -5,4 +5,46 @@ html {
 body {
 	font-family: -apple-system, BlinkMacSystemFont, "Neue Haas Grotesk Text Pro",
 		"Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: white;
+}
+
+.container {
+	text-align: center;
+}
+
+#middle-row {
+	#time {
+		font-size: 1680%;
+		line-height: 0.85;
+	}
+	p {
+		font-size: 5.4rem;
+	}
+}
+
+#middle-bottom-row {
+	> h1 {
+		font-size: 3rem;
+	}
+	> #text {
+		text-align: center;
+		font-size: 3rem;
+		color: white;
+	}
+}
+
+#bottom-row {
+	#quote {
+		font-size: 1.8rem;
+		line-height: 1.2;
+	}
+
+	> .toggle {
+		font-size: 1.6rem;
+		color: rgba(225, 225, 225, 0.85);
+	}
+
+	> .toggle:hover {
+		color: white;
+	}
 }
