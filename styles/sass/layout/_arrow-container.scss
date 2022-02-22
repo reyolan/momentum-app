@@ -1,19 +1,57 @@
 @use "../abstract/mixins" as *;
+
+ul {
+	list-style-type: none;
+
+	input {
+		margin-right: 0.6rem;
+	}
+}
+
 #bottom-row {
 	.arrow-container.bottom-left {
 		@include arrow-container(left, top, bottom, 150%, 5%);
 	}
 
 	.arrow-container.bottom-right {
-		@include arrow-container(right, top, bottom, 150%, 86%);
-	}
-
-	.popup-header {
-		margin-bottom: 0.5rem;
+		@include arrow-container(right, top, bottom, 150%, 91%);
+		max-height: 60vh;
+		width: 320px;
 	}
 
 	#todo-content {
-		margin-bottom: 0.5rem;
+		padding: 0.5rem 0.1rem;
+	}
+
+	#todo-input {
+		width: 100%;
+	}
+
+	.todo-text {
+		width: 85%;
+		overflow-wrap: break-word;
+	}
+
+	li {
+		display: flex;
+		align-items: center;
+		margin: 0.5rem 0;
+	}
+
+	.remove-button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		border-radius: 50px;
+		margin-left: auto;
+		padding: 0.1em;
+		height: 20px;
+		width: 20px;
+	}
+
+	.remove-button:hover {
+		background-color: rgb(255, 255, 255, 0.4);
 	}
 }
 

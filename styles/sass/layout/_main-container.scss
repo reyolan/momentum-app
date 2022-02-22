@@ -2,7 +2,8 @@
 
 #main-container {
 	height: 100vh;
-	background-color: green;
+	background: url(../img/background-1.jpg) no-repeat center;
+	background-size: cover;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -36,11 +37,11 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	margin-bottom: 5rem;
+	padding-bottom: 5rem;
 
 	> h1 {
 		cursor: default;
-		margin-bottom: 0.5rem;
+		padding-bottom: 0.5rem;
 	}
 }
 
@@ -72,7 +73,7 @@
 	}
 
 	> p {
-		margin-top: 2rem;
+		padding-top: 2rem;
 	}
 
 	svg {
@@ -84,6 +85,6 @@
 
 	svg:hover {
 		background: rgba(255, 255, 255, 0.4);
-		border-radius: 50%;
+		border-radius: 50px;
 	}
 }

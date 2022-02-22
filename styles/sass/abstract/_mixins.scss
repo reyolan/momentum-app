@@ -6,10 +6,10 @@
 	$arrow-left-position-percentage
 ) {
 	position: absolute;
-	background: rgba(14, 17, 18, 0.8);
+	background: rgba(14, 17, 18, 0.7);
 	#{$container-placement}: $container-placement-percent;
 	#{$horizontal-position}: 0;
-	padding: 1.4rem 1.2rem;
+	padding: 1.9rem;
 	border-radius: 5px;
 	opacity: 0;
 	visibility: hidden;

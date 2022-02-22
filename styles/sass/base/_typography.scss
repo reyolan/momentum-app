@@ -53,13 +53,17 @@ body {
 		color: white;
 	}
 
-	#todo-content {
-		font-size: 1.6rem;
-	}
-
 	#todo-input {
 		color: rgb(196, 196, 196);
 		font-size: 1.6rem;
+	}
+
+	.todo-text {
+		font-size: 1.6rem;
+	}
+
+	.remove-button {
+		font-size: 1.4rem;
 	}
 }
 
