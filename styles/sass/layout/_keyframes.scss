@@ -1,0 +1,13 @@
+.pulse-animation {
+	animation: pulse 0.3s 2 alternate;
+}
+
+@keyframes pulse {
+	from {
+		background-color: transparent;
+	}
+
+	to {
+		background-color: rgb(255, 255, 255, 0.5);
+	}
+}

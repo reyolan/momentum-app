@@ -1,12 +1,13 @@
 .middle-container {
 	#name {
-		background: transparent;
+		background-color: transparent;
 		border: 0;
 		border-bottom: solid white 2px;
 		outline: none;
 		width: 1ch;
 		margin-left: -18px;
 		margin-right: -15px;
+		transition: width linear 0.4s;
 	}
 
 	#name:read-only {
@@ -16,9 +17,9 @@
 }
 
 #middle-bottom-row {
-	> #text:focus,
-	#text:active,
-	#text {
+	> #focus-text:focus,
+	#focus-text:active,
+	#focus-text {
 		background: transparent;
 		border: 0;
 		border-bottom: solid white 2px;

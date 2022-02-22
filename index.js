@@ -78,15 +78,19 @@ function showMenu(e) {
 // Change Name
 const inputName = document.querySelector("#name");
 const editNameElement = document.querySelector(".select");
-editNameElement.addEventListener("click", editName);
 
+editNameElement.addEventListener("click", editName);
 inputName.addEventListener("dblclick", editName);
 
 function editName() {
+	inputName.addEventListener("mousedown", (e) => e.preventDefault());
 	inputName.readOnly = false;
+
+	if (!inputName.readOnly) addAndRemovePulse(inputName);
 
 	if (editNameElement.classList.contains("-open")) {
 		editNameElement.classList.remove("-open");
+
 		inputName.focus();
 	}
 
@@ -94,15 +98,21 @@ function editName() {
 	window.addEventListener("keydown", windowOnClick);
 
 	function windowOnClick(e) {
-		console.log(e.target);
 		if (
 			(e.target !== inputName && e.target !== editNameElement) ||
 			e.key === "Enter"
 		) {
-			//transition background (opacity of white)
+			// addAndRemovePulse(inputName);
 			inputName.readOnly = true;
 		}
 	}
+}
+
+function addAndRemovePulse(element) {
+	element.classList.toggle("pulse-animation");
+	setTimeout(() => {
+		element.classList.toggle("pulse-animation");
+	}, 1000);
 }
 
 inputName.addEventListener("keydown", increaseInputWidth);
@@ -118,13 +128,14 @@ function increaseInputWidth(e) {
 		e.key.length === 1 &&
 		e.target.readOnly === false
 	) {
-		if (e.target.style.width === "10ch") return;
+		if (e.target.style.width === "11ch") return;
 		e.target.style.width = `${(widthUnit += 1)}ch`;
 	}
 
 	if (e.key === "Backspace" && widthUnit > 2 && e.target.readOnly === false) {
 		e.target.style.width = `${(widthUnit -= 1)}ch`;
 	}
+	console.log(e.target.style.width);
 }
 
 //To-do List
@@ -169,6 +180,9 @@ function strikeThroughText(e) {
 		? "line-through"
 		: "";
 }
+
+// focus input
+const focusInput = document.querySelector("#focus-text");
 
 // Randomize Quote and Add Quote and apply immediately(?)
 const quoteArr = [];
