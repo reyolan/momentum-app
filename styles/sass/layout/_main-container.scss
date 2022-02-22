@@ -36,23 +36,11 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	// border: solid yellow 1px;
+	margin-bottom: 5rem;
 
 	> h1 {
 		cursor: default;
-	}
-
-	> #text:focus,
-	#text:active,
-	#text {
-		background: transparent;
-		border: 0;
-		border-bottom: solid white 2px;
-		outline: none;
-	}
-
-	> #text {
-		min-width: 550px;
+		margin-bottom: 0.5rem;
 	}
 }
 
@@ -64,14 +52,6 @@
 
 	p {
 		// max-width: 33ch;
-	}
-
-	.arrow-container.bottom-left {
-		@include arrow-container(left, top, 5%);
-	}
-
-	.arrow-container.bottom-right {
-		@include arrow-container(right, top, 78%);
 	}
 
 	> .toggle {
@@ -86,18 +66,23 @@
 	align-items: center;
 	width: 100%;
 
-	> #time,
+	#time,
 	p {
 		grid-column: 2 / 3;
 	}
 
-	> svg {
-		margin-left: 2rem;
-		cursor: pointer;
-		display: none;
+	> p {
+		margin-top: 2rem;
 	}
 
-	> svg:hover {
+	svg {
+		margin-left: 2rem;
+		margin-top: 2rem;
+		cursor: pointer;
+		visibility: hidden;
+	}
+
+	svg:hover {
 		background: rgba(255, 255, 255, 0.4);
 		border-radius: 50%;
 	}

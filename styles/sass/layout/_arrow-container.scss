@@ -1,0 +1,44 @@
+@use "../abstract/mixins" as *;
+#bottom-row {
+	.arrow-container.bottom-left {
+		@include arrow-container(left, top, bottom, 150%, 5%);
+	}
+
+	.arrow-container.bottom-right {
+		@include arrow-container(right, top, bottom, 150%, 86%);
+	}
+
+	.popup-header {
+		margin-bottom: 0.5rem;
+	}
+
+	#todo-content {
+		margin-bottom: 0.5rem;
+	}
+}
+
+.middle-container {
+	.arrow-container.middle {
+		@include arrow-container(left, bottom, top, 115%, 15%);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 2rem;
+	}
+
+	.arrow-container.middle.select {
+		@include arrow-container(left, bottom, top, 115%, 22%);
+	}
+
+	.arrow-container.middle.select:hover {
+		background-color: rgba(0, 0, 0, 0.4);
+	}
+}
+
+.svg-arrow-container {
+	position: relative;
+
+	> .select {
+		cursor: pointer;
+	}
+}

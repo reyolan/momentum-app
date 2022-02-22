@@ -1,9 +1,20 @@
+@use "../abstract/mixins" as *;
+
 #main-container .-show {
-	display: block;
+	visibility: visible;
 }
 
-#bottom-row .arrow-container.-open {
+#bottom-row .arrow-container.-open,
+.svg-arrow-container > .arrow-container.middle.-open {
 	visibility: visible;
 	opacity: 1;
 	transition: visibility 0s, opacity 0.2s linear;
+}
+
+.checkbox {
+	@include toggle-switch-checkbox;
+}
+
+.switch {
+	@include toggle-switch-label;
 }

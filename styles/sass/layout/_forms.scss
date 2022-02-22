@@ -1,0 +1,36 @@
+.middle-container {
+	#name {
+		background: transparent;
+		border: 0;
+		border-bottom: solid white 2px;
+		outline: none;
+		width: 1ch;
+		margin-left: -18px;
+		margin-right: -15px;
+	}
+
+	#name:read-only {
+		border: 0;
+		cursor: default;
+	}
+}
+
+#middle-bottom-row {
+	> #text:focus,
+	#text:active,
+	#text {
+		background: transparent;
+		border: 0;
+		border-bottom: solid white 2px;
+		outline: none;
+	}
+}
+
+#bottom-row {
+	#todo-input {
+		background-color: rgba(66, 67, 65, 0.5);
+		border: 0;
+		outline: none;
+		padding: 0.2rem 0.5rem;
+	}
+}

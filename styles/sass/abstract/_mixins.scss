@@ -1,11 +1,13 @@
 @mixin arrow-container(
 	$horizontal-position,
 	$arrow-direction,
+	$container-placement,
+	$container-placement-percent,
 	$arrow-left-position-percentage
 ) {
 	position: absolute;
 	background: rgba(14, 17, 18, 0.8);
-	bottom: 150%;
+	#{$container-placement}: $container-placement-percent;
 	#{$horizontal-position}: 0;
 	padding: 1.4rem 1.2rem;
 	border-radius: 5px;
@@ -13,13 +15,48 @@
 	visibility: hidden;
 	transition: visibility 0.2s, opacity 0.2s linear;
 
-	:before {
+	&:before {
 		border: solid transparent;
 		content: "";
 		position: absolute;
 		#{$arrow-direction}: 100%;
 		left: $arrow-left-position-percentage;
-		border-#{$arrow-direction}-color: rgba(14, 17, 18, 0.4);
+		border-#{$arrow-direction}-color: rgba(14, 17, 18, 0.8);
 		border-width: 10px;
+	}
+}
+
+//mixin checkbox, use the .switch for label
+
+@mixin toggle-switch-checkbox {
+	display: none;
+	&:checked + .switch::after {
+		left: 20px;
+	}
+
+	&:checked + .switch {
+		background-color: #4cbf3f;
+	}
+}
+
+@mixin toggle-switch-label {
+	position: relative;
+	display: inline-block;
+	width: 40px;
+	height: 20px;
+	background-color: #4c4c4c;
+	border-radius: 20px;
+	cursor: pointer;
+
+	&::after {
+		content: "";
+		position: absolute;
+		width: 18px;
+		height: 18px;
+		border-radius: 50%;
+		background-color: white;
+		top: 1px; // TO GIVE AN EFFECT OF CIRCLE INSIDE SWITCH.
+		left: 1px;
+		transition: all 0.3s;
 	}
 }

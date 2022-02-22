@@ -19,36 +19,56 @@
 				<div id="middle-row">
 					<div class="middle-container">
 						<span id="time">00:00</span>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="32"
-							height="32"
-							fill="currentColor"
-							class="bi bi-three-dots"
-							viewBox="0 0 16 16"
-						>
-							<path
-								d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-							/>
-						</svg>
+						<div class="svg-arrow-container">
+							<div class="arrow-container middle">
+								<span>12-hour clock</span>
+								<input
+									type="checkbox"
+									id="toggle-time-format"
+									class="checkbox"
+								/>
+								<label for="toggle-time-format" class="switch"></label>
+							</div>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="32"
+								height="32"
+								fill="currentColor"
+								class="bi bi-three-dots toggle"
+								viewBox="0 0 16 16"
+							>
+								<path
+									d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+								/>
+							</svg>
+						</div>
 					</div>
 					<div class="middle-container">
 						<p>
 							Good <span id="greeting">______</span>,
-							<span id="name">Mark</span>.
+							<input
+								type="text"
+								id="name"
+								autocomplete="off"
+								maxlength="10"
+								readonly
+							/>.
 						</p>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="32"
-							height="32"
-							fill="currentColor"
-							class="bi bi-three-dots"
-							viewBox="0 0 16 16"
-						>
-							<path
-								d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-							/>
-						</svg>
+						<div class="svg-arrow-container">
+							<div class="arrow-container middle select">Edit your name</div>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="32"
+								height="32"
+								fill="currentColor"
+								class="bi bi-three-dots toggle"
+								viewBox="0 0 16 16"
+							>
+								<path
+									d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+								/>
+							</svg>
+						</div>
 					</div>
 				</div>
 				<div id="middle-bottom-row">
@@ -59,9 +79,11 @@
 					<div class="arrow-container bottom-left">
 						<div class="popup-header">
 							<h1>Settings</h1>
-							<p>Show or hide different elements</p>
 						</div>
-						<div id="settings-content">Hide Time</div>
+						<div id="settings-content">
+							<span>Hide Time</span>
+							<span>Hide Focus</span>
+						</div>
 					</div>
 					<span class="toggle">Settings</span>
 					<div class="container">
@@ -77,6 +99,7 @@
 							<h1>To-do List</h1>
 						</div>
 						<div id="todo-content">Hello</div>
+						<input type="text" placeholder="New Todo" id="todo-input" />
 					</div>
 					<span class="toggle">Todo</span>
 				</div>

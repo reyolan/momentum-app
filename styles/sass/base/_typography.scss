@@ -17,18 +17,23 @@ body {
 		font-size: 1680%;
 		line-height: 0.85;
 	}
-	p {
+
+	#name {
 		font-size: 5.4rem;
+		color: white;
+		text-align: center;
 	}
 }
 
 #middle-bottom-row {
 	> h1 {
-		font-size: 3.2rem;
+		font-size: 3.6rem;
+		font-weight: 300;
+		text-align: center;
 	}
 	> #text {
 		text-align: center;
-		font-size: 3rem;
+		font-size: 3.6rem;
 		color: white;
 	}
 }
@@ -47,4 +52,30 @@ body {
 	> .toggle:hover {
 		color: white;
 	}
+
+	#todo-content {
+		font-size: 1.6rem;
+	}
+
+	#todo-input {
+		color: rgb(196, 196, 196);
+		font-size: 1.6rem;
+	}
+}
+
+.middle-container {
+	> p {
+		font-size: 5.4rem;
+		text-align: center;
+	}
+}
+
+.svg-arrow-container {
+	> .arrow-container.middle {
+		font-size: 1.5rem;
+	}
+
+	// > .arrow-container.middle.select > p {
+	// 	font-size: 1.5rem;
+	// }
 }
