@@ -38,7 +38,7 @@ function presentGreeting(hour) {
 	const greeting = document.querySelector("#greeting");
 	if (hour >= 0 && hour < 12) {
 		greeting.textContent = "morning";
-	} else if (hour >= 12 && hour <= 18) {
+	} else if (hour >= 12 && hour < 18) {
 		greeting.textContent = "afternoon";
 	} else {
 		greeting.textContent = "evening";
@@ -198,27 +198,30 @@ const focusInput = document.querySelector("#focus-input");
 focusInput.addEventListener("keydown", enterFocus);
 
 function enterFocus(e) {
-	const focusContainer = document.querySelectorAll(".focus-container");
+	const focusContainer = document.querySelector(".focus-container");
 
 	if (e.key === "Enter") {
-		focusContainer[0].classList.add("hide-animation");
+		focusContainer.classList.add("hide-animation");
+		const text = e.target.value;
 
 		setTimeout(() => {
-			focusContainer[0].classList.add("-hide");
+			focusContainer.classList.add("-hide");
+			displayFocus(text);
 		}, 300);
-
-		displayFocus(focusContainer, e.target.value);
 
 		e.target.value = "";
 	}
 }
 
-function displayFocus(focusContainer, text) {
+function displayFocus(text) {
 	const focusText = document.querySelector("#focus-text");
 	focusText.textContent = text;
 
-	focusContainer[1].classList.add("open-animation");
-	focusContainer[1].classList.add("open-animation");
+	const focusTextContainer = document.querySelector(
+		"#middle-bottom-row > .middle-container"
+	);
+	focusTextContainer.classList.remove("-hide");
+	focusTextContainer.classList.add("open-animation");
 }
 
 // Randomize Quote and Add Quote and apply immediately(?)

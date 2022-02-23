@@ -10,13 +10,13 @@ ul {
 
 #bottom-row {
 	.arrow-container.bottom-left {
-		@include arrow-container(left, top, bottom, 150%, 5%);
+		@include arrow-container(left, 0, top, bottom, 150%, 5%);
 	}
 
 	.arrow-container.bottom-right {
 		max-height: 60vh;
 		width: 320px;
-		@include arrow-container(right, top, bottom, 150%, 91%);
+		@include arrow-container(right, 0, top, bottom, 150%, 91%);
 	}
 
 	#todo-content {
@@ -60,15 +60,19 @@ ul {
 		justify-content: space-between;
 		align-items: center;
 		gap: 2rem;
-		@include arrow-container(left, bottom, top, 115%, 15%);
+		@include arrow-container(left, 1.1%, bottom, top, 115%, 13%);
 	}
 
 	.arrow-container.middle.select {
-		@include arrow-container(left, bottom, top, 115%, 22%);
+		@include arrow-container(left, 3.8%, bottom, top, 115%, 13%);
 	}
 
 	.arrow-container.middle.select:hover {
 		background-color: rgba(0, 0, 0, 0.4);
+	}
+
+	.arrow-container.middle.focus {
+		@include arrow-container(left, 3.7%, bottom, top, 118%, 12%);
 	}
 }
 

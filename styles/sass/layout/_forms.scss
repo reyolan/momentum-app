@@ -33,13 +33,13 @@
 		flex-direction: column;
 	}
 
-	.focus-container.-hide {
-		display: none;
-	}
-
 	h1 {
 		cursor: default;
 		padding-bottom: 0.5rem;
+	}
+
+	.-hide {
+		display: none;
 	}
 }
 

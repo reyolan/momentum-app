@@ -27,8 +27,9 @@ body {
 }
 
 #middle-row #time {
-  font-size: 1680%;
+  font-size: 16.6rem;
   line-height: 0.85;
+  letter-spacing: -5px;
 }
 #middle-row #name {
   font-size: 5.4rem;
@@ -48,8 +49,8 @@ body {
   color: white;
 }
 #middle-bottom-row h1#focus-now {
-  font-size: 3.2rem;
-  font-weight: 400;
+  font-size: 2.1rem;
+  font-weight: 700;
   text-align: center;
 }
 
@@ -137,11 +138,12 @@ body {
   width: 100%;
 }
 .middle-container #time,
-.middle-container p {
+.middle-container p,
+.middle-container .focus-container {
   grid-column: 2/3;
 }
 .middle-container > p {
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 .middle-container svg {
   margin-left: 2rem;
@@ -166,7 +168,7 @@ ul input {
   background: rgba(14, 17, 18, 0.7);
   bottom: 150%;
   left: 0;
-  padding: 1.9rem;
+  padding: 1rem 1.2rem;
   border-radius: 5px;
   opacity: 0;
   display: none;
@@ -187,7 +189,7 @@ ul input {
   background: rgba(14, 17, 18, 0.7);
   bottom: 150%;
   right: 0;
-  padding: 1.9rem;
+  padding: 1rem 1.2rem;
   border-radius: 5px;
   opacity: 0;
   display: none;
@@ -238,8 +240,8 @@ ul input {
   position: absolute;
   background: rgba(14, 17, 18, 0.7);
   top: 115%;
-  left: 0;
-  padding: 1.9rem;
+  left: 1.1%;
+  padding: 1rem 1.2rem;
   border-radius: 5px;
   opacity: 0;
   display: none;
@@ -249,7 +251,7 @@ ul input {
   content: "";
   position: absolute;
   bottom: 100%;
-  left: 15%;
+  left: 13%;
   border-bottom-color: rgba(14, 17, 18, 0.8);
   border-width: 10px;
 }
@@ -257,8 +259,8 @@ ul input {
   position: absolute;
   background: rgba(14, 17, 18, 0.7);
   top: 115%;
-  left: 0;
-  padding: 1.9rem;
+  left: 3.8%;
+  padding: 1rem 1.2rem;
   border-radius: 5px;
   opacity: 0;
   display: none;
@@ -268,12 +270,31 @@ ul input {
   content: "";
   position: absolute;
   bottom: 100%;
-  left: 22%;
+  left: 13%;
   border-bottom-color: rgba(14, 17, 18, 0.8);
   border-width: 10px;
 }
 .middle-container .arrow-container.middle.select:hover {
   background-color: rgba(0, 0, 0, 0.4);
+}
+.middle-container .arrow-container.middle.focus {
+  position: absolute;
+  background: rgba(14, 17, 18, 0.7);
+  top: 118%;
+  left: 3.7%;
+  padding: 1rem 1.2rem;
+  border-radius: 5px;
+  opacity: 0;
+  display: none;
+}
+.middle-container .arrow-container.middle.focus:before {
+  border: solid transparent;
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 12%;
+  border-bottom-color: rgba(14, 17, 18, 0.8);
+  border-width: 10px;
 }
 
 .svg-arrow-container {
@@ -312,12 +333,12 @@ ul input {
   align-items: center;
   flex-direction: column;
 }
-#middle-bottom-row .focus-container.-hide {
-  display: none;
-}
 #middle-bottom-row h1 {
   cursor: default;
   padding-bottom: 0.5rem;
+}
+#middle-bottom-row .-hide {
+  display: none;
 }
 
 #bottom-row #todo-input {
