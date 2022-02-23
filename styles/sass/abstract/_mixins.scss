@@ -12,8 +12,7 @@
 	padding: 1.9rem;
 	border-radius: 5px;
 	opacity: 0;
-	visibility: hidden;
-	transition: visibility 0.2s, opacity 0.2s linear;
+	display: none;
 
 	&:before {
 		border: solid transparent;

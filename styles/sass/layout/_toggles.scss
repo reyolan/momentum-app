@@ -4,11 +4,18 @@
 	visibility: visible;
 }
 
-#bottom-row .arrow-container.-open,
-.svg-arrow-container > .arrow-container.middle.-open {
-	visibility: visible;
-	opacity: 1;
-	transition: visibility 0s, opacity 0.2s linear;
+#bottom-row .arrow-container {
+	&.-open {
+		// opacity: 1;
+		// transition: opacity 0.2s linear;
+		display: block;
+	}
+}
+
+.svg-arrow-container > .arrow-container.middle {
+	&.-open {
+		display: flex;
+	}
 }
 
 .checkbox {

@@ -23,14 +23,14 @@ function toggleTimeFormat(hour, minute) {
 }
 
 function twentyFourHoursTime(timeElement, hour, minute) {
-	minuteText = minute < 10 ? `0${minute}` : minute;
-	hourText = hour < 10 ? `0${hour}` : hour;
+	const minuteText = minute < 10 ? `0${minute}` : minute;
+	const hourText = hour < 10 ? `0${hour}` : hour;
 	timeElement.textContent = `${hourText}:${minuteText}`;
 }
 
 function twelveHoursTime(timeElement, hour, minute) {
-	minuteText = minute < 10 ? `0${minute}` : minute;
-	hourText = hour % 12 || 12;
+	const minuteText = minute < 10 ? `0${minute}` : minute;
+	const hourText = hour % 12 || 12;
 	timeElement.textContent = `${hourText}:${minuteText}`;
 }
 
@@ -58,11 +58,11 @@ middleContainer.forEach((container) =>
 );
 
 function showThreeDots(e) {
-	e.target.children[1].lastElementChild.classList.toggle("-show");
+	e.target.children[1].lastElementChild.classList.add("-show");
 }
 
 function hideThreeDots(e) {
-	e.target.children[1].lastElementChild.classList.toggle("-show");
+	e.target.children[1].lastElementChild.classList.remove("-show");
 }
 
 // Arrow Container Windows
@@ -72,7 +72,20 @@ toggleMenu.forEach((toggle) => {
 });
 
 function showMenu(e) {
-	e.target.previousElementSibling.classList.toggle("-open");
+	const arrowContainerElement = e.target.previousElementSibling;
+
+	if (arrowContainerElement.classList.contains("open-animation")) {
+		arrowContainerElement.classList.remove("open-animation");
+		arrowContainerElement.classList.add("hide-animation");
+		setTimeout(() => {
+			arrowContainerElement.classList.remove("-open");
+			arrowContainerElement.classList.remove("hide-animation");
+		}, 300);
+
+		return;
+	}
+	arrowContainerElement.classList.add("open-animation");
+	arrowContainerElement.classList.add("-open");
 }
 
 // Change Name
@@ -135,7 +148,6 @@ function increaseInputWidth(e) {
 	if (e.key === "Backspace" && widthUnit > 2 && e.target.readOnly === false) {
 		e.target.style.width = `${(widthUnit -= 1)}ch`;
 	}
-	console.log(e.target.style.width);
 }
 
 //To-do List
@@ -182,7 +194,32 @@ function strikeThroughText(e) {
 }
 
 // focus input
-const focusInput = document.querySelector("#focus-text");
+const focusInput = document.querySelector("#focus-input");
+focusInput.addEventListener("keydown", enterFocus);
+
+function enterFocus(e) {
+	const focusContainer = document.querySelectorAll(".focus-container");
+
+	if (e.key === "Enter") {
+		focusContainer[0].classList.add("hide-animation");
+
+		setTimeout(() => {
+			focusContainer[0].classList.add("-hide");
+		}, 300);
+
+		displayFocus(focusContainer, e.target.value);
+
+		e.target.value = "";
+	}
+}
+
+function displayFocus(focusContainer, text) {
+	const focusText = document.querySelector("#focus-text");
+	focusText.textContent = text;
+
+	focusContainer[1].classList.add("open-animation");
+	focusContainer[1].classList.add("open-animation");
+}
 
 // Randomize Quote and Add Quote and apply immediately(?)
 const quoteArr = [];

@@ -26,15 +26,21 @@ body {
 }
 
 #middle-bottom-row {
-	> h1 {
+	h1#focus-question {
 		font-size: 3.6rem;
 		font-weight: 300;
 		text-align: center;
 	}
-	> #focus-text {
+	#focus-input,
+	#focus-text {
 		text-align: center;
 		font-size: 3.6rem;
 		color: white;
+	}
+	h1#focus-now {
+		font-size: 3.2rem;
+		font-weight: 400;
+		text-align: center;
 	}
 }
 

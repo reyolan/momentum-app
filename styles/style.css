@@ -36,15 +36,21 @@ body {
   text-align: center;
 }
 
-#middle-bottom-row > h1 {
+#middle-bottom-row h1#focus-question {
   font-size: 3.6rem;
   font-weight: 300;
   text-align: center;
 }
-#middle-bottom-row > #focus-text {
+#middle-bottom-row #focus-input,
+#middle-bottom-row #focus-text {
   text-align: center;
   font-size: 3.6rem;
   color: white;
+}
+#middle-bottom-row h1#focus-now {
+  font-size: 3.2rem;
+  font-weight: 400;
+  text-align: center;
 }
 
 #bottom-row p {
@@ -86,6 +92,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   padding: 1.2rem 1.8rem;
+  animation: fadein 0.6s;
 }
 
 #bottom-container {
@@ -110,15 +117,7 @@ body {
 }
 
 #middle-bottom-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   padding-bottom: 5rem;
-}
-#middle-bottom-row > h1 {
-  cursor: default;
-  padding-bottom: 0.5rem;
 }
 
 #bottom-row {
@@ -170,8 +169,7 @@ ul input {
   padding: 1.9rem;
   border-radius: 5px;
   opacity: 0;
-  visibility: hidden;
-  transition: visibility 0.2s, opacity 0.2s linear;
+  display: none;
 }
 #bottom-row .arrow-container.bottom-left:before {
   border: solid transparent;
@@ -183,6 +181,8 @@ ul input {
   border-width: 10px;
 }
 #bottom-row .arrow-container.bottom-right {
+  max-height: 60vh;
+  width: 320px;
   position: absolute;
   background: rgba(14, 17, 18, 0.7);
   bottom: 150%;
@@ -190,10 +190,7 @@ ul input {
   padding: 1.9rem;
   border-radius: 5px;
   opacity: 0;
-  visibility: hidden;
-  transition: visibility 0.2s, opacity 0.2s linear;
-  max-height: 60vh;
-  width: 320px;
+  display: none;
 }
 #bottom-row .arrow-container.bottom-right:before {
   border: solid transparent;
@@ -235,6 +232,9 @@ ul input {
 }
 
 .middle-container .arrow-container.middle {
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
   position: absolute;
   background: rgba(14, 17, 18, 0.7);
   top: 115%;
@@ -242,12 +242,7 @@ ul input {
   padding: 1.9rem;
   border-radius: 5px;
   opacity: 0;
-  visibility: hidden;
-  transition: visibility 0.2s, opacity 0.2s linear;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
+  display: none;
 }
 .middle-container .arrow-container.middle:before {
   border: solid transparent;
@@ -266,8 +261,7 @@ ul input {
   padding: 1.9rem;
   border-radius: 5px;
   opacity: 0;
-  visibility: hidden;
-  transition: visibility 0.2s, opacity 0.2s linear;
+  display: none;
 }
 .middle-container .arrow-container.middle.select:before {
   border: solid transparent;
@@ -297,20 +291,33 @@ ul input {
   width: 1ch;
   margin-left: -18px;
   margin-right: -15px;
-  transition: width linear 0.4s;
+  transition: width ease-in-out 0.2s;
 }
 .middle-container #name:read-only {
   border: 0;
   cursor: default;
 }
 
-#middle-bottom-row > #focus-text:focus,
-#middle-bottom-row #focus-text:active,
-#middle-bottom-row #focus-text {
+#middle-bottom-row #focus-input:focus,
+#middle-bottom-row #focus-input:active,
+#middle-bottom-row #focus-input {
   background: transparent;
   border: 0;
   border-bottom: solid white 2px;
   outline: none;
+}
+#middle-bottom-row .focus-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#middle-bottom-row .focus-container.-hide {
+  display: none;
+}
+#middle-bottom-row h1 {
+  cursor: default;
+  padding-bottom: 0.5rem;
 }
 
 #bottom-row #todo-input {
@@ -324,11 +331,12 @@ ul input {
   visibility: visible;
 }
 
-#bottom-row .arrow-container.-open,
+#bottom-row .arrow-container.-open {
+  display: block;
+}
+
 .svg-arrow-container > .arrow-container.middle.-open {
-  visibility: visible;
-  opacity: 1;
-  transition: visibility 0s, opacity 0.2s linear;
+  display: flex;
 }
 
 .checkbox {
@@ -366,12 +374,36 @@ ul input {
   animation: pulse 0.3s 2 alternate;
 }
 
+.open-animation {
+  animation: fadein forwards 0.3s;
+}
+
+.hide-animation {
+  animation: fadeout forwards 0.3s;
+}
+
 @keyframes pulse {
   from {
     background-color: transparent;
   }
   to {
     background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 

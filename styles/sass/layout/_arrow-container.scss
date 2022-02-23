@@ -14,9 +14,9 @@ ul {
 	}
 
 	.arrow-container.bottom-right {
-		@include arrow-container(right, top, bottom, 150%, 91%);
 		max-height: 60vh;
 		width: 320px;
+		@include arrow-container(right, top, bottom, 150%, 91%);
 	}
 
 	#todo-content {
@@ -57,11 +57,10 @@ ul {
 
 .middle-container {
 	.arrow-container.middle {
-		@include arrow-container(left, bottom, top, 115%, 15%);
-		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		gap: 2rem;
+		@include arrow-container(left, bottom, top, 115%, 15%);
 	}
 
 	.arrow-container.middle.select {
