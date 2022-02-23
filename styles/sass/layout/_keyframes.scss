@@ -6,6 +6,10 @@
 	animation: fadein forwards 0.3s;
 }
 
+.hide-show-animation {
+	animation: fadeout alternate 2 forwards 1s;
+}
+
 .hide-animation {
 	animation: fadeout forwards 0.3s;
 }

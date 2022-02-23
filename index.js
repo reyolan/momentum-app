@@ -228,12 +228,28 @@ window.addEventListener("load", randomizeQuote);
 const nextQuoteElement = document.querySelector("#next-quote");
 nextQuoteElement.addEventListener("click", randomizeQuote);
 
+const quoteContainer = document.querySelector(
+	"#bottom-row > .middle-container > p"
+);
+
 function randomizeQuote() {
+	if (quoteElement.textContent) {
+		quoteContainer.classList.toggle("hide-show-animation");
+		quoteContainer.addEventListener("animationiteration", () => {
+			quoteElement.textContent =
+				quoteArr[Math.floor(Math.random() * quoteArr.length)];
+		});
+
+		quoteContainer.addEventListener("animationend", (e) =>
+			e.target.classList.toggle("hide-show-animation")
+		);
+		return;
+	}
+
 	quoteElement.textContent =
 		quoteArr[Math.floor(Math.random() * quoteArr.length)];
 }
 
-randomizeQuote();
 // // Window On Click
 // window.addEventListener("click", windowOnClick);
 
