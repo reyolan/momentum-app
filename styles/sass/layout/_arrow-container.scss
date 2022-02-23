@@ -60,11 +60,11 @@ ul {
 		justify-content: space-between;
 		align-items: center;
 		gap: 2rem;
-		@include arrow-container(left, 1.1%, bottom, top, 115%, 13%);
+		@include arrow-container(left, 5px, bottom, top, 115%, 13%);
 	}
 
 	.arrow-container.middle.select {
-		@include arrow-container(left, 3.8%, bottom, top, 115%, 13%);
+		@include arrow-container(left, 15px, bottom, top, 115%, 13%);
 	}
 
 	.arrow-container.middle.select:hover {
@@ -72,7 +72,7 @@ ul {
 	}
 
 	.arrow-container.middle.focus {
-		@include arrow-container(left, 3.7%, bottom, top, 118%, 12%);
+		@include arrow-container(left, 15px, bottom, top, 118%, 13%);
 	}
 }
 

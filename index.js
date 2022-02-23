@@ -15,23 +15,12 @@ function presentTime() {
 }
 
 function toggleTimeFormat(hour, minute) {
-	if (toggleTimeElement.checked) {
-		twelveHoursTime(time, hour, minute);
-	} else {
-		twentyFourHoursTime(time, hour, minute);
-	}
-}
+	let hourText;
+	if (toggleTimeElement.checked) hourText = hour % 12 || 12;
+	else hourText = hour < 10 ? `0${hour}` : hour;
 
-function twentyFourHoursTime(timeElement, hour, minute) {
 	const minuteText = minute < 10 ? `0${minute}` : minute;
-	const hourText = hour < 10 ? `0${hour}` : hour;
-	timeElement.textContent = `${hourText}:${minuteText}`;
-}
-
-function twelveHoursTime(timeElement, hour, minute) {
-	const minuteText = minute < 10 ? `0${minute}` : minute;
-	const hourText = hour % 12 || 12;
-	timeElement.textContent = `${hourText}:${minuteText}`;
+	time.textContent = `${hourText}:${minuteText}`;
 }
 
 function presentGreeting(hour) {
@@ -90,20 +79,20 @@ function showMenu(e) {
 
 // Change Name
 const inputName = document.querySelector("#name");
-const editNameElement = document.querySelector(".select");
+const editNameElement = document.querySelectorAll(".select");
 
-editNameElement.addEventListener("click", editName);
+editNameElement[0].addEventListener("click", editName);
 inputName.addEventListener("dblclick", editName);
 
 function editName() {
-	inputName.addEventListener("mousedown", (e) => e.preventDefault());
 	inputName.readOnly = false;
+	inputName.focus();
+	inputName.addEventListener("mousedown", (e) => e.preventDefault());
 
 	if (!inputName.readOnly) addAndRemovePulse(inputName);
 
-	if (editNameElement.classList.contains("-open")) {
-		editNameElement.classList.remove("-open");
-
+	if (editNameElement[0].classList.contains("-open")) {
+		editNameElement[0].classList.remove("-open");
 		inputName.focus();
 	}
 
@@ -112,10 +101,11 @@ function editName() {
 
 	function windowOnClick(e) {
 		if (
-			(e.target !== inputName && e.target !== editNameElement) ||
+			(e.target !== inputName && e.target !== editNameElement[0]) ||
 			e.key === "Enter"
 		) {
-			// addAndRemovePulse(inputName);
+			addAndRemovePulse(inputName);
+			console.log(e.target);
 			inputName.readOnly = true;
 		}
 	}
@@ -166,7 +156,6 @@ function enterToDoInput(e) {
 
 function addListToDom(toDoText) {
 	const li = document.createElement("li");
-	li.dataset.toDoIndex;
 
 	const checkbox = document.createElement("input");
 	checkbox.setAttribute("type", "checkbox");
@@ -225,8 +214,26 @@ function displayFocus(text) {
 }
 
 // Randomize Quote and Add Quote and apply immediately(?)
-const quoteArr = [];
+const quoteArr = [
+	"Great things happen to those who don't stop believing, trying, learning, and being grateful.",
+	"Live as if you were to die tomorrow. Learn as if you were to live forever.",
+	"Being a student is easy. Learning requires actual work.",
+	"The beautiful thing about learning is nobody can take it away from you.",
+	"Never bend your head. Always hold it high. Look the world straight in the eye.",
+];
 
+const quoteElement = document.querySelector("#quote");
+window.addEventListener("load", randomizeQuote);
+
+const nextQuoteElement = document.querySelector("#next-quote");
+nextQuoteElement.addEventListener("click", randomizeQuote);
+
+function randomizeQuote() {
+	quoteElement.textContent =
+		quoteArr[Math.floor(Math.random() * quoteArr.length)];
+}
+
+randomizeQuote();
 // // Window On Click
 // window.addEventListener("click", windowOnClick);
 

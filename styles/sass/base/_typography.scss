@@ -6,6 +6,7 @@ body {
 	font-family: -apple-system, BlinkMacSystemFont, "Neue Haas Grotesk Text Pro",
 		"Helvetica Neue", Helvetica, Arial, sans-serif;
 	color: white;
+	text-shadow: 0 1px 5px rgb(0 0 0 / 20%);
 }
 
 .container {
@@ -14,8 +15,8 @@ body {
 
 #middle-row {
 	#time {
-		font-size: 16.6rem;
-		line-height: 0.85;
+		font-size: 16.2rem;
+		line-height: 0.8;
 		letter-spacing: -5px;
 	}
 
@@ -28,7 +29,7 @@ body {
 
 #middle-bottom-row {
 	h1#focus-question {
-		font-size: 3.6rem;
+		font-size: 3.4rem;
 		font-weight: 300;
 		text-align: center;
 	}
@@ -48,7 +49,8 @@ body {
 #bottom-row {
 	p {
 		font-size: 1.8rem;
-		line-height: 1.2;
+
+		color: rgba(255, 255, 255, 0.85);
 	}
 
 	> .toggle {

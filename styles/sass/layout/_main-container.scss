@@ -13,7 +13,7 @@
 
 #bottom-container {
 	// border: solid red 1px;
-	height: 62.5%;
+	height: 60vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -34,7 +34,7 @@
 }
 
 #middle-bottom-row {
-	padding-bottom: 5rem;
+	padding-bottom: 2vh;
 }
 
 #bottom-row {
@@ -61,7 +61,8 @@
 
 	#time,
 	p,
-	.focus-container {
+	.focus-container,
+	#quote {
 		grid-column: 2 / 3;
 	}
 
