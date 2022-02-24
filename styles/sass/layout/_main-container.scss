@@ -5,24 +5,20 @@
 	background: url(../img/background-1.jpg) no-repeat center;
 	background-size: cover;
 	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+	justify-content: center;
+
 	padding: 1.2rem 1.8rem;
 	animation: fadein 0.6s;
 }
 
 #bottom-container {
 	// border: solid red 1px;
+	width: 100%;
+	align-self: flex-end;
 	height: 60vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-}
-
-#top-row {
-	display: flex;
-	justify-content: flex-end;
-	cursor: default;
 }
 
 #middle-row {
@@ -38,6 +34,7 @@
 }
 
 #bottom-row {
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

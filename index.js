@@ -1,5 +1,3 @@
-// maybe use local storage?
-
 //Time and Greeting
 const time = document.querySelector("#time");
 const toggleTimeElement = document.querySelector("#toggle-time-format");
@@ -332,6 +330,26 @@ function toggleElementDisplay() {
 
 const navLinks = document.querySelectorAll(".nav-link");
 const settings = document.querySelectorAll(".settings-view");
+
+navLinks.forEach((navLink) =>
+	navLink.addEventListener("click", toggleSettingDisplay)
+);
+
+function toggleSettingDisplay(e) {
+	if (e.target.textContent === "General") {
+		settings[0].classList.remove("-hide");
+		settings[1].classList.add("-hide");
+		settings[2].classList.add("-hide");
+	} else if (e.target.textContent === "Quote") {
+		settings[0].classList.add("-hide");
+		settings[1].classList.remove("-hide");
+		settings[2].classList.add("-hide");
+	} else {
+		settings[0].classList.add("-hide");
+		settings[1].classList.add("-hide");
+		settings[2].classList.remove("-hide");
+	}
+}
 
 // // Window On Click
 // window.addEventListener("click", windowOnClick);

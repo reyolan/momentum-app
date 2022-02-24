@@ -9,12 +9,6 @@
 	</head>
 	<body>
 		<div id="main-container">
-			<div id="top-row">
-				<div id="todo-counter">
-					<span>0</span>
-					<p>TODOS COMPLETE</p>
-				</div>
-			</div>
 			<div id="bottom-container">
 				<div id="middle-row">
 					<div class="middle-container settings-toggle">
@@ -162,9 +156,18 @@
 						<div id="settings-quote" class="settings-view -hide">
 							<header class="settings-header">
 								<h1 class="settings-title">Quote</h1>
-								<p class="settings-description">Add and remove quote</p>
+								<p class="settings-description">Add and remove quotes</p>
 							</header>
+							<div id="add-quote-container">
+								<input
+									type="text"
+									placeholder="Insert quote here"
+									id="quote-input"
+								/>
+								<button type="button" id="quote-button">Add Quote</button>
+							</div>
 							<h2>QUOTES</h2>
+							<ul id="quote-list"></ul>
 						</div>
 						<div id="settings-about" class="settings-view -hide"></div>
 					</div>

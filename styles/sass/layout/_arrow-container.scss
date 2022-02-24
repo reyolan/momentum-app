@@ -10,7 +10,9 @@ ul {
 
 #bottom-row {
 	.arrow-container.bottom-left {
-		@include arrow-container(left, 0, top, bottom, 150%, 5%);
+		@include arrow-container(left, 0, top, bottom, 150%, 2.5%);
+		height: 400px;
+		width: 600px;
 	}
 
 	.arrow-container.bottom-right {

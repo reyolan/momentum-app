@@ -48,13 +48,12 @@ body {
 
 #bottom-row {
 	p {
-		font-size: 1.8rem;
-
+		font-size: 2rem;
 		color: rgba(255, 255, 255, 0.85);
 	}
 
 	.toggle {
-		font-size: 1.6rem;
+		font-size: 1.7rem;
 		color: rgba(225, 225, 225, 0.85);
 	}
 
@@ -76,7 +75,7 @@ body {
 	}
 
 	#settings-nav {
-		font-size: 1.6rem;
+		font-size: 1.8rem;
 		color: rgba(225, 225, 225, 0.85);
 	}
 
@@ -91,6 +90,14 @@ body {
 	.settings-description {
 		font-size: 1.4rem;
 	}
+
+	#quote-input {
+		font-size: 1.6rem;
+	}
+
+	#quote-button {
+		font-size: 1.5rem;
+	}
 }
 
 .middle-container {
@@ -101,11 +108,7 @@ body {
 }
 
 .svg-arrow-container {
-	> .arrow-container.middle {
+	.arrow-container.middle {
 		font-size: 1.5rem;
 	}
-
-	// > .arrow-container.middle.select > p {
-	// 	font-size: 1.5rem;
-	// }
 }

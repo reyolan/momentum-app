@@ -50,4 +50,38 @@
 		outline: none;
 		padding: 0.2rem 0.5rem;
 	}
+
+	#add-quote-container {
+		display: flex;
+		justify-content: space-between;
+		gap: 0.8rem;
+		margin-bottom: 1.5rem;
+	}
+
+	#quote-input {
+		background-color: rgba(66, 67, 65, 0.5);
+		border: 0;
+		outline: none;
+		padding: 0.1em 0.4em;
+		border-radius: 5px;
+		flex: 1;
+	}
+
+	#quote-button {
+		border: 0;
+		border-radius: 50px;
+		cursor: pointer;
+		padding: 0.8em 1em;
+		background-color: rgb(84, 116, 147, 0.95);
+	}
+
+	#quote-button:hover {
+		transition: background-color ease-in 0.2s;
+		background-color: rgb(84, 116, 147, 0.85);
+	}
+
+	#quote-button:active {
+		transition: background-color ease-in 0.1s;
+		background-color: rgb(84, 116, 147, 0.65);
+	}
 }
