@@ -32,7 +32,7 @@ function presentGreeting(hour) {
 
 setInterval(presentTime, 500);
 
-// hover three dots
+//Hover three dots
 const middleContainer = document.querySelectorAll(".middle-container");
 middleContainer.forEach((container) =>
 	container.addEventListener("mouseenter", showThreeDots)
@@ -50,7 +50,7 @@ function hideThreeDots(e) {
 	e.target.children[1].lastElementChild.classList.remove("-show");
 }
 
-// Arrow Container Windows
+//Arrow Container Windows
 const toggleMenu = document.querySelectorAll(".toggle");
 toggleMenu.forEach((toggle) => {
 	toggle.addEventListener("click", showMenu);
@@ -78,7 +78,7 @@ function showMenu(e) {
 	arrowContainerElement.classList.add("-open");
 }
 
-// Change Name
+//Change Name
 const inputName = document.querySelector("#name");
 const editNameElement = document.querySelector(".select");
 
@@ -101,13 +101,7 @@ function editName() {
 	window.addEventListener("keydown", windowOnClick);
 
 	function windowOnClick(e) {
-		if (
-			// (e.target !== inputName &&
-			// 	e.target !== editNameElement &&
-			// 	document.activeElement === inputName) ||
-			e.key === "Enter" &&
-			document.activeElement === inputName
-		) {
+		if (e.key === "Enter" && document.activeElement === inputName) {
 			addAndRemovePulse(inputName);
 			inputName.readOnly = true;
 		}
@@ -186,7 +180,7 @@ function strikeThroughText(e) {
 		: "";
 }
 
-// focus input
+//Focus input
 const focusInput = document.querySelector("#focus-input");
 focusInput.addEventListener("keydown", enterFocus);
 const focusContainer = document.querySelector(".focus-container");
@@ -334,7 +328,7 @@ function addQuoteToDom(quote) {
 	quoteListDom.appendChild(li);
 }
 
-// print initial quote list to DOM
+//Print initial quote list to DOM
 
 function displayInitialQuoteList() {
 	quoteArr.forEach((quote) => {
@@ -344,8 +338,7 @@ function displayInitialQuoteList() {
 
 displayInitialQuoteList();
 
-// Settings Container
-
+//Settings Container
 const toggleElement = document.querySelectorAll(
 	"#settings-general-list .checkbox"
 );
@@ -399,7 +392,7 @@ function toggleSettingDisplay(e) {
 	}
 }
 
-// Ask name at initial load
+//Ask name at initial load
 function askName() {
 	const mainContainer = document.querySelector("#main-container");
 	const askNameContainer = document.querySelector("#ask-name-container");
