@@ -53,12 +53,12 @@ body {
 		color: rgba(255, 255, 255, 0.85);
 	}
 
-	> .toggle {
+	.toggle {
 		font-size: 1.6rem;
 		color: rgba(225, 225, 225, 0.85);
 	}
 
-	> .toggle:hover {
+	.toggle:hover {
 		color: white;
 	}
 
@@ -72,6 +72,23 @@ body {
 	}
 
 	.remove-button {
+		font-size: 1.4rem;
+	}
+
+	#settings-nav {
+		font-size: 1.6rem;
+		color: rgba(225, 225, 225, 0.85);
+	}
+
+	#settings-nav span:hover {
+		color: white;
+	}
+
+	#settings-general-list {
+		font-size: 1.6rem;
+	}
+
+	.settings-description {
 		font-size: 1.4rem;
 	}
 }

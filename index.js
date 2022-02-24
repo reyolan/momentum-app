@@ -1,7 +1,5 @@
 // maybe use local storage?
 
-//TIME FORMAT (12-hr clock)
-
 //Time and Greeting
 const time = document.querySelector("#time");
 const toggleTimeElement = document.querySelector("#toggle-time-format");
@@ -66,10 +64,15 @@ function showMenu(e) {
 	if (arrowContainerElement.classList.contains("open-animation")) {
 		arrowContainerElement.classList.remove("open-animation");
 		arrowContainerElement.classList.add("hide-animation");
-		setTimeout(() => {
-			arrowContainerElement.classList.remove("-open");
-			arrowContainerElement.classList.remove("hide-animation");
-		}, 300);
+
+		arrowContainerElement.addEventListener(
+			"animationend",
+			(e) => {
+				e.target.classList.remove("-open");
+				e.target.classList.remove("hide-animation");
+			},
+			{ once: true }
+		);
 
 		return;
 	}
@@ -79,9 +82,9 @@ function showMenu(e) {
 
 // Change Name
 const inputName = document.querySelector("#name");
-const editNameElement = document.querySelectorAll(".select");
+const editNameElement = document.querySelector(".select");
 
-editNameElement[0].addEventListener("click", editName);
+editNameElement.addEventListener("click", editName);
 inputName.addEventListener("dblclick", editName);
 
 function editName() {
@@ -91,8 +94,8 @@ function editName() {
 
 	if (!inputName.readOnly) addAndRemovePulse(inputName);
 
-	if (editNameElement[0].classList.contains("-open")) {
-		editNameElement[0].classList.remove("-open");
+	if (editNameElement.classList.contains("-open")) {
+		editNameElement.classList.remove("-open");
 		inputName.focus();
 	}
 
@@ -101,21 +104,24 @@ function editName() {
 
 	function windowOnClick(e) {
 		if (
-			(e.target !== inputName && e.target !== editNameElement[0]) ||
-			e.key === "Enter"
+			// (e.target !== inputName &&
+			// 	e.target !== editNameElement &&
+			// 	document.activeElement === inputName) ||
+			e.key === "Enter" &&
+			document.activeElement === inputName
 		) {
 			addAndRemovePulse(inputName);
-			console.log(e.target);
 			inputName.readOnly = true;
 		}
 	}
 }
 
 function addAndRemovePulse(element) {
-	element.classList.toggle("pulse-animation");
-	setTimeout(() => {
-		element.classList.toggle("pulse-animation");
-	}, 1000);
+	element.classList.add("pulse-animation");
+
+	element.addEventListener("animationend", (e) =>
+		e.target.classList.remove("pulse-animation")
+	);
 }
 
 inputName.addEventListener("keydown", increaseInputWidth);
@@ -185,41 +191,79 @@ function strikeThroughText(e) {
 // focus input
 const focusInput = document.querySelector("#focus-input");
 focusInput.addEventListener("keydown", enterFocus);
+const focusContainer = document.querySelector(".focus-container");
 
 function enterFocus(e) {
-	const focusContainer = document.querySelector(".focus-container");
+	const text = e.target.value;
 
 	if (e.key === "Enter") {
 		focusContainer.classList.add("hide-animation");
-		const text = e.target.value;
 
-		setTimeout(() => {
-			focusContainer.classList.add("-hide");
-			displayFocus(text);
-		}, 300);
-
-		e.target.value = "";
+		focusContainer.addEventListener(
+			"animationend",
+			(e) => {
+				e.target.classList.add("-hide");
+				displayFocus(text);
+				e.target.classList.remove("hide-animation");
+			},
+			{ once: true }
+		);
 	}
 }
+
+function focusContainerEvent(e) {
+	e.target.classList.add("-hide");
+	displayFocus(text);
+	e.target.classList.remove("hide-animation");
+}
+
+const focusTextContainer = document.querySelector(
+	"#middle-bottom-row .middle-container"
+);
 
 function displayFocus(text) {
 	const focusText = document.querySelector("#focus-text");
 	focusText.textContent = text;
 
-	const focusTextContainer = document.querySelector(
-		"#middle-bottom-row > .middle-container"
-	);
 	focusTextContainer.classList.remove("-hide");
 	focusTextContainer.classList.add("open-animation");
 }
 
-// Randomize Quote and Add Quote and apply immediately(?)
+const focusOption = document.querySelector("#focus");
+focusOption.addEventListener("click", changeFocus);
+
+function changeFocus(e) {
+	e.target.classList.remove("-open");
+	e.target.classList.remove("open-animation");
+
+	focusTextContainer.classList.remove("open-animation");
+	focusTextContainer.classList.add("hide-animation");
+	focusTextContainer.addEventListener(
+		"animationend",
+		(e) => {
+			e.target.classList.add("-hide");
+			e.target.classList.remove("hide-animation");
+			bringBackFocusInput();
+		},
+		{ once: true }
+	);
+}
+
+function bringBackFocusInput() {
+	focusContainer.classList.remove("-hide");
+	focusContainer.add("open-animation");
+	// focusContainer.classList.add("open-animation");
+}
+
+// Randomize Quote
 const quoteArr = [
 	"Great things happen to those who don't stop believing, trying, learning, and being grateful.",
 	"Live as if you were to die tomorrow. Learn as if you were to live forever.",
 	"Being a student is easy. Learning requires actual work.",
 	"The beautiful thing about learning is nobody can take it away from you.",
 	"Never bend your head. Always hold it high. Look the world straight in the eye.",
+	"The master has failed more times than the beginner has even tried.",
+	"The best time to plant a tree was twenty years ago, the second best time is right now.",
 ];
 
 const quoteElement = document.querySelector("#quote");
@@ -229,19 +273,21 @@ const nextQuoteElement = document.querySelector("#next-quote");
 nextQuoteElement.addEventListener("click", randomizeQuote);
 
 const quoteContainer = document.querySelector(
-	"#bottom-row > .middle-container > p"
+	"#bottom-row > .middle-container"
 );
 
 function randomizeQuote() {
 	if (quoteElement.textContent) {
-		quoteContainer.classList.toggle("hide-show-animation");
+		quoteContainer.classList.add("hide-show-animation");
 		quoteContainer.addEventListener("animationiteration", () => {
 			quoteElement.textContent =
 				quoteArr[Math.floor(Math.random() * quoteArr.length)];
 		});
 
-		quoteContainer.addEventListener("animationend", (e) =>
-			e.target.classList.toggle("hide-show-animation")
+		quoteContainer.addEventListener(
+			"animationend",
+			(e) => e.target.classList.remove("hide-show-animation"),
+			{ once: true }
 		);
 		return;
 	}
@@ -249,6 +295,43 @@ function randomizeQuote() {
 	quoteElement.textContent =
 		quoteArr[Math.floor(Math.random() * quoteArr.length)];
 }
+
+//Add Quote
+
+// Settings Container
+
+const toggleElement = document.querySelectorAll(
+	"#settings-general-list .checkbox"
+);
+
+const toggleListSettings = document.querySelectorAll(".settings-toggle");
+
+window.addEventListener("load", initializeToggleStates);
+
+function initializeToggleStates() {
+	for (let i = 0; i < toggleListSettings.length; i++) {
+		if (!toggleListSettings[i].classList.contains("-hide")) {
+			toggleElement[i].checked = true;
+		}
+	}
+}
+
+toggleElement.forEach((toggle) => {
+	toggle.addEventListener("click", toggleElementDisplay);
+});
+
+function toggleElementDisplay() {
+	for (let i = 0; i < toggleListSettings.length; i++) {
+		if (!toggleElement[i].checked) {
+			toggleListSettings[i].classList.add("-hide");
+		} else {
+			toggleListSettings[i].classList.remove("-hide");
+		}
+	}
+}
+
+const navLinks = document.querySelectorAll(".nav-link");
+const settings = document.querySelectorAll(".settings-view");
 
 // // Window On Click
 // window.addEventListener("click", windowOnClick);

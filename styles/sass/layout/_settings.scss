@@ -1,0 +1,46 @@
+.arrow-container.bottom-left {
+	#settings-nav {
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+		padding: 1rem 1rem 1rem 0.5rem;
+		grid-column: 1 / 2;
+		border-right: solid 2px rgba(255, 255, 255, 0.09);
+	}
+
+	#settings-nav span {
+		cursor: pointer;
+	}
+
+	#settings-general-list li {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.6rem 1.1rem;
+		border-bottom: solid 2px rgba(255, 255, 255, 0.1);
+	}
+
+	.settings-header {
+		margin-bottom: 1.8rem;
+	}
+
+	.settings-header h1 {
+		margin-bottom: 0.2rem;
+	}
+
+	h2 {
+		border-bottom: solid 2px rgba(255, 255, 255, 0.1);
+	}
+}
+
+.settings-view {
+	cursor: default;
+	grid-column: 2 / 3;
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+
+	&.-hide {
+		display: none;
+	}
+}

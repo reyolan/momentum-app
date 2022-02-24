@@ -10,12 +10,21 @@
 		// transition: opacity 0.2s linear;
 		display: block;
 	}
+
+	&.bottom-left.-open {
+		display: grid;
+		grid-template-columns: 1fr 3fr;
+	}
 }
 
 .svg-arrow-container > .arrow-container.middle {
 	&.-open {
 		display: flex;
 	}
+}
+
+.-hide {
+	display: none;
 }
 
 .checkbox {

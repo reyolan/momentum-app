@@ -47,16 +47,16 @@
 		// max-width: 33ch;
 	}
 
-	> .toggle {
+	.toggle {
 		cursor: pointer;
 	}
 }
 
 .middle-container {
-	// border: solid green 1px;
 	display: grid;
 	grid-template-columns: 1fr auto 1fr;
 	align-items: center;
+	align-content: center;
 	width: 100%;
 
 	#time,
@@ -67,12 +67,12 @@
 	}
 
 	> p {
-		padding-top: 1rem;
+		cursor: default;
+		max-width: 75ch;
 	}
 
 	svg {
-		margin-left: 2rem;
-		margin-top: 2rem;
+		margin-left: 4rem;
 		cursor: pointer;
 		visibility: hidden;
 	}
