@@ -144,7 +144,7 @@ body {
 #bottom-container {
   width: 100%;
   align-self: flex-end;
-  height: 60vh;
+  height: 65vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -179,6 +179,9 @@ body {
   align-items: center;
   align-content: center;
   width: 100%;
+}
+.middle-container:nth-of-type(1) {
+  margin-bottom: 2rem;
 }
 .middle-container #time,
 .middle-container p,
