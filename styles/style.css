@@ -241,7 +241,7 @@ ul input {
   border-width: 10px;
 }
 #bottom-row .arrow-container.bottom-right {
-  max-height: 60vh;
+  max-height: 80vh;
   width: 320px;
   position: absolute;
   background: rgba(14, 17, 18, 0.85);
@@ -263,6 +263,8 @@ ul input {
 }
 #bottom-row #todo-content {
   padding: 0.5rem 0.1rem;
+  max-height: 70vh;
+  overflow-y: auto;
 }
 #bottom-row #todo-input {
   width: 100%;

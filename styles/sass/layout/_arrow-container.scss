@@ -16,13 +16,15 @@ ul {
 	}
 
 	.arrow-container.bottom-right {
-		max-height: 60vh;
+		max-height: 80vh;
 		width: 320px;
 		@include arrow-container(right, 0, top, bottom, 150%, 91%);
 	}
 
 	#todo-content {
 		padding: 0.5rem 0.1rem;
+		max-height: 70vh;
+		overflow-y: auto;
 	}
 
 	#todo-input {
