@@ -254,7 +254,7 @@ function bringBackFocusInput() {
 }
 
 // Randomize Quote
-const quoteArr = [
+let quoteArr = [
 	"Great things happen to those who don't stop believing, trying, learning, and being grateful.",
 	"Live as if you were to die tomorrow. Learn as if you were to live forever.",
 	"Being a student is easy. Learning requires actual work.",
@@ -295,6 +295,48 @@ function randomizeQuote() {
 }
 
 //Add Quote
+const quoteListDom = document.querySelector("#quote-list");
+const addQuoteButton = document.querySelector("#quote-button");
+addQuoteButton.addEventListener("click", addQuote);
+
+function addQuote(e) {
+	let quoteInput = e.target.previousElementSibling.value;
+	if (quoteInput) {
+		quoteArr.push(quoteInput);
+		addQuoteToDom(quoteInput);
+		e.target.previousElementSibling.value = "";
+	}
+}
+
+function addQuoteToDom(quote) {
+	const li = document.createElement("li");
+
+	const p = document.createElement("p");
+	p.textContent = quote;
+	li.appendChild(p);
+
+	const removeButton = document.createElement("span");
+	removeButton.classList.add("remove-button");
+	removeButton.textContent = "✖";
+	removeButton.addEventListener("click", (e) => {
+		e.target.parentNode.remove();
+		quoteArr = quoteArr.filter((quoteElement) => quoteElement !== quote);
+	});
+
+	li.appendChild(removeButton);
+
+	quoteListDom.appendChild(li);
+}
+
+// print initial quote list to DOM
+
+function displayInitialQuoteList() {
+	quoteArr.forEach((quote) => {
+		addQuoteToDom(quote);
+	});
+}
+
+displayInitialQuoteList();
 
 // Settings Container
 
@@ -363,3 +405,5 @@ function toggleSettingDisplay(e) {
 // 		}
 // 	});
 // }
+
+const mainContainer = document.querySelector("#main-container");

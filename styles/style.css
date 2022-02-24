@@ -84,7 +84,8 @@ body {
 #bottom-row #settings-nav span:hover {
   color: white;
 }
-#bottom-row #settings-general-list {
+#bottom-row #settings-general-list,
+#bottom-row #quote-list p {
   font-size: 1.6rem;
 }
 #bottom-row .settings-description {
@@ -175,6 +176,15 @@ body {
   border-radius: 50px;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #5e5e5f;
+}
+
 ul {
   list-style-type: none;
 }
@@ -184,7 +194,7 @@ ul input {
 
 #bottom-row .arrow-container.bottom-left {
   position: absolute;
-  background: rgba(14, 17, 18, 0.7);
+  background: rgba(14, 17, 18, 0.85);
   bottom: 150%;
   left: 0;
   padding: 1rem 1.2rem;
@@ -207,7 +217,7 @@ ul input {
   max-height: 60vh;
   width: 320px;
   position: absolute;
-  background: rgba(14, 17, 18, 0.7);
+  background: rgba(14, 17, 18, 0.85);
   bottom: 150%;
   right: 0;
   padding: 1rem 1.2rem;
@@ -259,7 +269,7 @@ ul input {
   align-items: center;
   gap: 2rem;
   position: absolute;
-  background: rgba(14, 17, 18, 0.7);
+  background: rgba(14, 17, 18, 0.85);
   top: 115%;
   left: 24px;
   padding: 1rem 1.2rem;
@@ -278,7 +288,7 @@ ul input {
 }
 .middle-container .arrow-container.middle.select {
   position: absolute;
-  background: rgba(14, 17, 18, 0.7);
+  background: rgba(14, 17, 18, 0.85);
   top: 115%;
   left: 34px;
   padding: 1rem 1.2rem;
@@ -300,7 +310,7 @@ ul input {
 }
 .middle-container .arrow-container.middle.focus {
   position: absolute;
-  background: rgba(14, 17, 18, 0.7);
+  background: rgba(14, 17, 18, 0.85);
   top: 118%;
   left: 15px;
   padding: 1rem 1.2rem;
@@ -351,6 +361,17 @@ ul input {
 }
 .arrow-container.bottom-left h2 {
   border-bottom: solid 2px rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+}
+.arrow-container.bottom-left #quote-list {
+  height: 230px;
+  overflow-y: auto;
+}
+.arrow-container.bottom-left #quote-list li {
+  padding: 0.6rem 1.1rem;
+  border-bottom: solid 2px rgba(255, 255, 255, 0.1);
+  display: grid;
+  grid-template-columns: auto 1fr;
 }
 
 .settings-view {

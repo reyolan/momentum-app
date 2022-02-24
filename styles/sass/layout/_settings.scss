@@ -30,6 +30,19 @@
 
 	h2 {
 		border-bottom: solid 2px rgba(255, 255, 255, 0.1);
+		padding-bottom: 0.5rem;
+	}
+
+	#quote-list {
+		height: 230px;
+		overflow-y: auto;
+	}
+
+	#quote-list li {
+		padding: 0.6rem 1.1rem;
+		border-bottom: solid 2px rgba(255, 255, 255, 0.1);
+		display: grid;
+		grid-template-columns: auto 1fr;
 	}
 }
 
