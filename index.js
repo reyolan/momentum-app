@@ -84,11 +84,11 @@ const editNameElement = document.querySelector(".select");
 
 editNameElement.addEventListener("click", editName);
 inputName.addEventListener("dblclick", editName);
+inputName.addEventListener("mousedown", (e) => e.preventDefault());
 
 function editName() {
 	inputName.readOnly = false;
 	inputName.focus();
-	inputName.addEventListener("mousedown", (e) => e.preventDefault());
 
 	if (!inputName.readOnly) addAndRemovePulse(inputName);
 
@@ -249,8 +249,7 @@ function changeFocus(e) {
 
 function bringBackFocusInput() {
 	focusContainer.classList.remove("-hide");
-	focusContainer.add("open-animation");
-	// focusContainer.classList.add("open-animation");
+	focusContainer.classList.add("open-animation");
 }
 
 // Randomize Quote
@@ -297,7 +296,14 @@ function randomizeQuote() {
 //Add Quote
 const quoteListDom = document.querySelector("#quote-list");
 const addQuoteButton = document.querySelector("#quote-button");
+const quoteInputElement = document.querySelector("#quote-input");
+
 addQuoteButton.addEventListener("click", addQuote);
+quoteInputElement.addEventListener("keydown", (e) => {
+	if (e.key === "Enter") {
+		addQuoteButton.click();
+	}
+});
 
 function addQuote(e) {
 	let quoteInput = e.target.previousElementSibling.value;
@@ -393,17 +399,26 @@ function toggleSettingDisplay(e) {
 	}
 }
 
-// // Window On Click
-// window.addEventListener("click", windowOnClick);
+// Ask name at initial load
+function askName() {
+	const mainContainer = document.querySelector("#main-container");
+	const askNameContainer = document.querySelector("#ask-name-container");
 
-// function windowOnClick(e) {
-// 	const arrowContainer = document.querySelectorAll(".arrow-container");
+	const askName = document.querySelector("#ask-name");
+	askName.addEventListener("keydown", (e) => {
+		if (e.key === "Enter" && e.target.value) {
+			inputName.value = e.target.value;
+			inputName.style.width = `${askName.value.length + 1}ch`;
 
-// 	arrowContainer.forEach((container) => {
-// 		if (e.target !== container) {
-// 			container.classList.remove("-open");
-// 		}
-// 	});
-// }
+			askNameContainer.classList.add("hide-animation");
 
-const mainContainer = document.querySelector("#main-container");
+			askNameContainer.addEventListener("animationend", (e) => {
+				e.target.classList.add("-hide");
+				mainContainer.classList.add("open-animation");
+				mainContainer.style.display = "flex";
+			});
+		}
+	});
+}
+
+askName();

@@ -3,15 +3,15 @@
 }
 
 .open-animation {
-	animation: fadein forwards 0.3s;
+	animation: fadein forwards 0.4s;
 }
 
 .hide-show-animation {
-	animation: fadeout 0.5s 2 forwards alternate;
+	animation: fadeout 0.4s 2 forwards alternate;
 }
 
 .hide-animation {
-	animation: fadeout forwards 0.3s;
+	animation: fadeout forwards 0.4s;
 }
 
 @keyframes pulse {
