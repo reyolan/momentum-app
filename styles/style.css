@@ -34,6 +34,7 @@ body {
 #ask-name-container #ask-name {
   font-size: 5rem;
   text-align: center;
+  color: white;
 }
 
 #middle-row #time {
@@ -101,9 +102,11 @@ body {
 }
 #bottom-row #quote-input {
   font-size: 1.6rem;
+  color: white;
 }
 #bottom-row #quote-button {
   font-size: 1.5rem;
+  color: white;
 }
 
 .middle-container > p {

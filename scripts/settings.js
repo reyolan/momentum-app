@@ -1,4 +1,9 @@
-import { toggleElement, toggleListSettings, navLinks } from "./constant.js";
+import {
+	toggleElement,
+	toggleListSettings,
+	navLinks,
+	settings,
+} from "./constant.js";
 
 function initializeToggleStates() {
 	for (let i = 0; i < toggleListSettings.length; i++) {
