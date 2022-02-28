@@ -23,12 +23,6 @@ function enterFocus(e) {
 	}
 }
 
-function focusContainerEvent(e) {
-	e.target.classList.add("-hide");
-	displayFocus(text);
-	e.target.classList.remove("hide-animation");
-}
-
 function displayFocus(text) {
 	const focusText = document.querySelector("#focus-text");
 	focusText.textContent = text;
